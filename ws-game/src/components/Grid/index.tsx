@@ -94,7 +94,7 @@ const Grid: React.FC = () => {
         const id = uuidv4();
 
         console.log("creating WebSocket…");
-        const socket = new WebSocket("ws://localhost:8080");//"wss://ws-server-app--0000007.wittymeadow-43996ec3.eastus.azurecontainerapps.io");
+        const socket = new WebSocket("wss://ws-server-app--0000011.wittymeadow-43996ec3.eastus.azurecontainerapps.io");
         ws.current = socket;
 
         socket.onopen = () => {
