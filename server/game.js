@@ -32,7 +32,7 @@ class GameSession extends EventEmitter {
     }
 
     asignNextColor() {
-        return this.clients.size === 0 ? 'blue' : 'red';
+        return this.clients.size === 0 ? 'red' : 'blue';
     }
 
     startTimer() {
@@ -60,20 +60,7 @@ class GameSession extends EventEmitter {
     }
 
     checkWin() {
-        let blueScore = 0, redScore = 0;
-        const flatBoard = this.board.flatMap(row => row);
-
-        flatBoard.forEach(cell => {
-            if (cell === "blue") {
-                blueScore++;
-            } else if (cell === "red") {
-                redScore++;
-            }
-        })
-        const scoreRequiredToWin = flatBoard.length / 2;
-        const hasWinningScore = [blueScore, redScore].some((score) => score > scoreRequiredToWin);
-        
-        return hasWinningScore;
+        return this.board.flatMap(row => row).every((cell) => cell !== null);;
     }
 
     play(row, col, assignedColor) {
